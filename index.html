@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		function getCoordinat () {
+			navigator.geolocation.getCurrentPosition(showCoordinat, errorCoordinat)
+		}
+		function showCoordinat (position) {
+			document.write(`Latitude: ${position.coords.latitude} <br>`)
+			document.write(`Longitude: ${position.coords.longitude} <br>`)
+		}
+		function errorCoordinat (error) {
+			switch (error.code) {
+				case error.PERMISSION_DENIED:
+					alert(1)
+				break;
+				case error.POSITION_UNAVAILABLE:
+					alert(2)
+				break;
+				case error.TIMEOUT:
+					alert(3)
+				break;
+			}
+		}
+		getCoordinat()
+	</script>
+</body>
+</html>
